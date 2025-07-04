@@ -1,7 +1,6 @@
 services:
-
   mysqldb:
-    image: mysql/mysql-server:5.7
+    image: mysql:8.0
     restart: unless-stopped
     environment:
       - MYSQL_ROOT_PASSWORD=root
@@ -30,3 +29,4 @@ services:
 
 volumes:
   db:
+  App-school-frontend
