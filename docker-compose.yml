@@ -1,9 +1,7 @@
-version: "3.8"
-
 services:
 
   mysqldb:
-    image: mysql:5.7
+    image: mysql/mysql-server:5.7
     restart: unless-stopped
     environment:
       - MYSQL_ROOT_PASSWORD=root
@@ -13,12 +11,10 @@ services:
     volumes:
       - db:/var/lib/mysql
 
-
   app-school-backend:
     depends_on:
       - mysqldb
     image: imenmsakni/school-image:1.0.0
-    #build : ./
     restart: on-failure
     ports:
       - 8089:8089
@@ -33,4 +29,4 @@ services:
     tty: true
 
 volumes:
-  db :
+  db:
